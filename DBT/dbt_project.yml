@@ -21,16 +21,12 @@ models:
 
     # Default for all models
     +materialized: view
-    +schema: xkcd_dataset
 
     staging:
       +materialized: view
-      +schema: xkcd_dataset
 
     dims:
       +materialized: view
-      +schema: xkcd_dataset
 
     facts:
       +materialized: table
-      +schema: xkcd_dataset

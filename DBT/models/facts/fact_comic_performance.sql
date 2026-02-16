@@ -1,8 +1,8 @@
 {{ config(materialized='table') }}
 
 SELECT
-    dc.comic_sk,
-    dd.date_sk,
+    dc.comic_id,
+    dd.publish_date
     RAND() * 10000 AS views,
     stg.title_length * 5 AS cost_eur,
     1 + RAND() * 9 AS avg_review_score

@@ -64,7 +64,7 @@ def full_load():
 
     print("Running FULL LOAD")
 
-    for comic_id in range(500,1000):
+    for comic_id in range(500,550):
         print(f"Processing comic ID: {comic_id}")
         r = requests.get(f"{BASE_URL}/{comic_id}/info.0.json")
         if r.status_code == 404:
@@ -128,11 +128,16 @@ def trigger_dbt_job():
 
     response = requests.post(url, headers=headers, json={})
 
+    payload = {
+    "cause": "Triggered from Airflow"
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+
     if response.status_code != 200:
         raise Exception(f"Failed to trigger dbt job: {response.text}")
 
-    run_id = response.json()["data"]["id"]
-    return run_id
+    return True
 
 with DAG(
     dag_id="xkcd_ingestion",

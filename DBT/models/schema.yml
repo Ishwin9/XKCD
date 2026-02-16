@@ -10,20 +10,7 @@ models:
   - name: dim_comic
     schema: xkcd_dataset
     columns:
-      - name: comic_sk
-        tests:
-          - unique
-          - not_null
-
       - name: comic_id
-        tests:
-          - unique
-          - not_null
-
-  - name: dim_date
-    schema: xkcd_dataset
-    columns:
-      - name: date_sk
         tests:
           - unique
           - not_null
@@ -31,19 +18,12 @@ models:
   - name: fact_comic_performance
     schema: xkcd_dataset
     columns:
-      - name: comic_sk
+      - name: comic_id
         tests:
           - not_null
           - relationships:
               to: ref('dim_comic')
-              field: comic_sk
-
-      - name: date_sk
-        tests:
-          - not_null
-          - relationships:
-              to: ref('dim_date')
-              field: date_sk
+              field: comic_id
 
       - name: avg_review_score
         tests:

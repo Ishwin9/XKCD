@@ -4,7 +4,7 @@ SELECT
     dc.comic_sk,
     dd.date_sk,
     RAND() * 10000 AS views,
-    base.title_length * 5 AS cost_eur,
+    stg.title_length * 5 AS cost_eur,
     1 + RAND() * 9 AS avg_review_score
 
 FROM {{ ref('std_xkcd_comics') }} stg

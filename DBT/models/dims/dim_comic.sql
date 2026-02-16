@@ -1,7 +1,6 @@
 {{ config(materialized='table') }}
 
 SELECT
-    {{ dbt_utils.generate_surrogate_key(['comic_id']) }} AS comic_sk,
     comic_id,
     title,
     title_length,

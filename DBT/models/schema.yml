@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+  - name: xkcd
+    database: your_project_id
+    schema: xkcd_dataset
+    tables:
+      - name: comics
+
+models:
+  - name: dim_comic
+    columns:
+      - name: comic_sk
+        tests:
+          - unique
+          - not_null
+
+      - name: comic_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    columns:
+      - name: date_sk
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_comic_performance
+    columns:
+      - name: comic_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_comic')
+              field: comic_sk
+
+      - name: date_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_sk
+
+      - name: avg_review_score
+        tests:
+          - not_null

@@ -1,0 +1,32 @@
+name: 'xkcd'
+version: '1.0.0'
+config-version: 2
+
+profile: 'xkcd_profile'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  xkcd:
+
+    # Default for all models
+    +materialized: view
+    +schema: xkcd_dataset
+
+    dims:
+      +materialized: view
+      +schema: xkcd_dataset
+
+    facts:
+      +materialized: table
+      +schema: xkcd_dataset

@@ -23,6 +23,10 @@ models:
     +materialized: view
     +schema: xkcd_dataset
 
+    staging:
+      +materialized: view
+      +schema: xkcd_dataset
+
     dims:
       +materialized: view
       +schema: xkcd_dataset

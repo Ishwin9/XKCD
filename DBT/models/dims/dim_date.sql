@@ -7,4 +7,4 @@ SELECT DISTINCT
     EXTRACT(MONTH FROM publish_date)    AS month,
     EXTRACT(DAY FROM publish_date)      AS day,
     FORMAT_DATE('%A', publish_date)     AS weekday
-FROM {{ ref('stg_xkcd_comics') }}
+FROM {{ ref('std_xkcd_comics') }}

@@ -6,4 +6,4 @@ SELECT
     title,
     title_length,
     alt
-FROM {{ ref('stg_xkcd_comics') }}
+FROM {{ ref('std_xkcd_comics') }}

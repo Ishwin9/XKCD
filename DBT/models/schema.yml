@@ -2,7 +2,6 @@ version: 2
 
 sources:
   - name: xkcd
-    database: your_project_id
     schema: xkcd_dataset
     tables:
       - name: comics

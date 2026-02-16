@@ -64,7 +64,7 @@ def full_load():
 
     print("Running FULL LOAD")
 
-    for comic_id in range(3, 100):
+    for comic_id in range(100,2000):
         print(f"Processing comic ID: {comic_id}")
         r = requests.get(f"{BASE_URL}/{comic_id}/info.0.json")
         if r.status_code == 404:

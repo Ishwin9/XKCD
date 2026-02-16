@@ -8,6 +8,7 @@ sources:
 
 models:
   - name: dim_comic
+    schema: xkcd_dataset
     columns:
       - name: comic_sk
         tests:
@@ -20,6 +21,7 @@ models:
           - not_null
 
   - name: dim_date
+    schema: xkcd_dataset
     columns:
       - name: date_sk
         tests:
@@ -27,6 +29,7 @@ models:
           - not_null
 
   - name: fact_comic_performance
+    schema: xkcd_dataset
     columns:
       - name: comic_sk
         tests:

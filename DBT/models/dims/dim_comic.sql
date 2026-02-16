@@ -2,8 +2,9 @@
 
 SELECT
     {{ dbt_utils.generate_surrogate_key(['comic_id']) }} AS comic_sk,
-    num,
+    cosmic_id,
     title,
     title_length,
-    alt
+    alt_text,
+    publish_date
 FROM {{ ref('std_xkcd_comics') }}

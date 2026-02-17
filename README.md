@@ -28,5 +28,7 @@ Start Airflow on your local machine by running 'astro dev start'.
 Airflow UI at http://localhost:8080/
 
 Default Login:
+
 Username: admin
+
 Password: admin
